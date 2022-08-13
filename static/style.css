@@ -1,0 +1,108 @@
+@font-face {
+	font-family: "SitkaText-Regular";
+	font-weight: 400;
+	src:
+url("https://font.animaapp.com/SitkaTextRegular") format("truetype");
+}
+
+@font-face {
+	font-family: "SitkaSmall-Bold";
+	font-weight: 700;
+	src:
+url("https://font.animaapp.com/SitkaSmallBold") format("truetype");
+}
+
+@font-face {
+	font-family: "SitkaSmall-Regular";
+	font-weight: 400;
+	src:
+url("https://font.animaapp.com/SitkaTextRegular") format("truetype");
+}
+
+.overlap-group{
+	height: 349px;
+	margin-left: 22px;
+	position: relative;
+	width: 244px;
+}
+
+.title {
+	color: var(--black);
+	font-family: var(--font-family-sitka_text);
+	font-size: var(--font-size-xxxxl);
+	font-weight: 400;
+	left: 75px;
+	letter-spacing: 0;
+	line-height: 25px;
+	position: absolute;
+	top: 0;
+	white-space: nowrap;
+	/* font-weight: 700;
+	letter-spacing: 0;
+	line-height: 15px;
+	margin-top: 9px;
+	min-height: 61px;
+	min-width: 318px;
+	text-align: center;
+	white-space: nowrap; */
+}
+
+.banner {
+	align-items: flex-start;
+	background-color: #5669ff;
+	display: flex;
+	height: 500px;
+	min-width: 200px;
+	padding: 70px 35px;
+}
+
+.main_screen {
+	align-items: center;
+	background-color: white ;
+	border-radius: 15px;
+	display: flex;
+	flex-direction: column;
+	min-height: 500px;
+	padding: 25px 0;
+	width: 400px;
+
+}
+
+.beresiko {
+	color: #e60004;
+	font-family: var(--font-family-sitka_small);
+	font-size: var(--font-size-xxxxl);
+	font-weight: 700;
+	left: 15px;
+	letter-spacing: 0;
+	line-height: 25px;
+	position: absolute;
+	top: 39px;
+	white-space: nowrap;
+	text-align: center;
+}
+
+.beresiko-1 {
+	height: 325px;
+	left: -10px;
+	position: absolute;
+	top: 24px;
+	width: 244px;
+	text-align: center;  
+}
+
+.anda-beresiko-terken {
+	color: var(--black);
+	font-family: var(--font-family-sitka_small);
+	font-size: var(--font-size-l);
+	font-weight: 700;
+	letter-spacing: 0;
+	line-height: 15px;
+	margin-top: 0px;
+	min-height: 61px;
+	min-width: 318px;
+	text-align: center;
+	white-space: nowrap;
+
+}
+

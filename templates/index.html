@@ -1,0 +1,32 @@
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css') }}">
+
+<div class="banner border-1px-dove-gray">
+    <div class="main_screen border-1px-dove-gray">
+       <div class="overlap-group">
+        <h1 class="title">Hasil Test</h1>
+        <div class="beresiko">{{ diagnosa }}</div>
+
+
+        {% if diagnosa == "BERESIKO KANKER" %}
+        <div>
+            <img class="beresiko-1" src="{{ url_for('static',filename='beresiko.png') }}" alt="beresiko"/>
+            <!-- <img class="beresiko-1" src="image/beresiko.png" alt="beresiko"/> -->
+            
+        </div>
+        {% else %}
+        <div>
+            <img class="beresiko-1" src="{{ url_for('static',filename='tidakberesiko.png') }}" alt="beresiko"/>
+        </div>
+        {% endif %}
+
+        <!-- <img class="beresiko-1" src="image/beresiko.png"/> -->
+    </div>
+    <p class="anda-beresiko-terken">
+        {{ detail }}
+    </p>
+    <!-- <div class="btn">
+        <div class="cek-rumah-sakit-terdekat">Cek Rumah Sakit Terdekat</div>
+    </div> -->
+</div>
+</div>
+</div>
