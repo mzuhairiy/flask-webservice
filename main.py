@@ -1,6 +1,7 @@
 from tkinter.dialog import DIALOG_ICON
 # from flask import Flask
 from flask import jsonify
+from datetime import date
 
 import pandas as pd
 import numpy as np
@@ -18,9 +19,36 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import confusion_matrix
 
 from sklearn.preprocessing import StandardScaler
+import firebase_admin
+from firebase_admin import credentials
+from firebase_admin import db
+from firebase_admin import firestore
+
 
 app = Flask(__name__)
 
+# class Data(object):
+#     def __init__(self, diagnosa, nama, tanggal):
+#         self.diagnosa = diagnosa
+#         self.nama = nama
+#         self.tanggal = tanggal
+
+
+def connectDB():
+    cred = credentials.Certificate("eova-11011-firebase-adminsdk-f1qdv-0374a1b140.json")
+    firebase_admin.initialize_app(cred)
+
+    db = firestore.client()
+    
+
+
+
+    
+    # firebase_admin.initialize_app(cred, {
+    #     "databaseURL": "https://eova-11011.australia-southeast1.firebasedatabase.app/riwayat" 
+    #     })
+    # dbconn = db.reference("eova-11011")
+    return db
 
 def knn(input_user):
     data = pd.read_csv('dataset_kanker_60_fix.csv')
@@ -93,18 +121,30 @@ def welcome(input1):
         diagnosa = 'BERESIKO KANKER'
         detail = 'Anda beresiko terkena kanker ovarium.'
 
+    today = date.today()
+    Dict = dict({"diagnosa": diagnosa, "nama": "Zuhairi", "tanggal": str(today)})
+
+    doc_ref = dbconn.collection(u'eova-11011').add(Dict)
+
+
     # data = {"info":[{"status" : diagnosa}]
     # }
 
     # return jsonify(data)
 
-
-
-
-
-
-
     return render_template('index.html', diagnosa=diagnosa, detail=detail)
+
+@app.route('/riwayat', methods=['GET', 'POST'])
+def riwayat():
+    doc_ref = dbconn.collection(u'eova-11011').stream()
+    # doc = doc_ref.get()
+    my_dict = []
+    for doc in doc_ref:
+        my_dict.append(doc.to_dict())
+        # print(f'{doc.id} => {doc.to_dict()}')
+    print (my_dict)
+
+    return render_template('table.html', data=my_dict)
 
 @app.route('/testprediksi/<input1>', methods=['GET', 'POST'])
 def testing(input1):
@@ -145,4 +185,5 @@ def testing(input1):
     return jsonify(data)
     
 if __name__ == "__main__":
-		app.run(host="134.209.109.247")
+    dbconn = connectDB()
+    app.run(host="134.209.109.247")
