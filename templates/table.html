@@ -1,23 +1,27 @@
-<link rel="stylesheet" crossorigin="anonymous"
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" >
-<table class="table">
-    <thead>
-        <tr>
-        <th scope="col">Nama</th>
-        <th scope="col">Diagnosa</th>
-        <th scope="col">Tanggal</th>
-        </tr>
-    </thead>
-    <tbody>
-        <!-- {{data.nama}}
-        {{data.diagnosa}}
-        {{data.tanggal}} -->
-        {% for doc in data %}
-            <tr>
-                <td>{{ doc.nama }}</th>
-                <td>{{ doc.diagnosa }}</td>
-                <td>{{ doc.tanggal }}</td>
-            </tr>
-        {% endfor %}
-    </tbody>
-</table>
+<link rel="stylesheet" crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" >
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='table.css') }}">
+
+<div class="banner border-1px-dove-gray">
+    <h1>Riwayat</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                <th scope="col">Nama</th>
+                <th scope="col">Diagnosa</th>
+                <th scope="col">Tanggal</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- {{data.nama}}
+                {{data.diagnosa}}
+                {{data.tanggal}} -->
+                {% for doc in data %}
+                    <tr>
+                        <td>{{ doc.nama }}</th>
+                        <td>{{ doc.diagnosa }}</td>
+                        <td>{{ doc.tanggal }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+</div>

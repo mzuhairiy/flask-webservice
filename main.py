@@ -40,10 +40,6 @@ def connectDB():
 
     db = firestore.client()
     
-
-
-
-    
     # firebase_admin.initialize_app(cred, {
     #     "databaseURL": "https://eova-11011.australia-southeast1.firebasedatabase.app/riwayat" 
     #     })
@@ -78,7 +74,6 @@ def knn(input_user):
     
     # clf = SVC(kernel="linear")
     # clf.fit(X_train,y_train)
-
 
     # y_prediksi=clf.predict(input_user)
 
